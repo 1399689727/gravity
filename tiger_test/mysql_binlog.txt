@@ -1,0 +1,39 @@
+
+mysqlbinlog --no-defaults --base64-output=DECODE-ROWS -v /data0/mysql_3306/log/mysql-bin.000002 > 1.log
+
+
+gravity_heartbeat_v2（1,2,3,4）
+
+# at 31087715
+#220408 15:30:00 server id 91725  end_log_pos 31087833 CRC32 0x18800715 	Update_rows: table id 125 flags: STMT_END_F
+### UPDATE `_gravity`.`gravity_heartbeat_v2`
+### WHERE
+###   @1='68_2_69_config'
+###   @2=28139
+###   @3='2022-04-08 15:29:57.133999'
+###   @4='2022-04-08 15:29:57.134104'
+### SET
+###   @1='68_2_69_config'
+###   @2=28140
+###   @3='2022-04-08 15:30:00.133933'
+###   @4='2022-04-08 15:30:00.133982'
+# at 31087833
+#220408 15:30:00 server id 91725  end_log_pos 31087864 CRC32 0x99c082c0 	Xid = 133880
+COMMIT/*!*/;
+SET @@SESSION.GTID_NEXT= 'AUTOMATIC' /* added by mysqlbinlog */ /*!*/;
+DELIMITER ;
+# End of log file
+
+
+
+snapshot 1                                                              snapshot current
+
+gravity_heartbeat_v2（1,2,3,4）                                          gravity_heartbeat_v2（1,2,3,4,5）
+
+
+gravity_heartbeat_v2（1,2,3,4,5）
+
+
+otter
+
+gravity

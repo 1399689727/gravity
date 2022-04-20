@@ -24,7 +24,8 @@ const (
 	defaultLogTimeFormat = time.RFC3339
 	defaultLogMaxSize    = 300 // MB
 	defaultLogFormat     = "json"
-	defaultLogLevel      = log.InfoLevel
+	//defaultLogLevel      = log.InfoLevel
+	defaultLogLevel      = log.DebugLevel
 )
 
 // FileLogConfig serializes file log related config in toml/json.

@@ -38,6 +38,7 @@ Gravity 使用了 [go mod](https://github.com/golang/go/wiki/Modules)，中国�
 创建如下配置文件 `config.toml`
 
 ```toml
+
 # name 必填
 name = "mysql2mysqlDemo"
 
@@ -73,6 +74,7 @@ match-schema = "test"
 match-table = "test_source_table"
 target-schema = "test"
 target-table = "test_target_table"
+
 ```
 
 #### MySQL 到 Kafka
@@ -80,6 +82,7 @@ target-table = "test_target_table"
 创建如下配置文件 `config.toml`
 
 ```toml
+
 name = "mysql2kafkaDemo"
 
 #
@@ -108,6 +111,7 @@ mode = "async"
 match-schema = "test"
 match-table = "test_source_table"
 dml-topic = "test"
+
 ```
 
 ## 启动 gravity

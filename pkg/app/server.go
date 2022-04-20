@@ -17,6 +17,7 @@ import (
 	"github.com/moiot/gravity/pkg/position_cache"
 	"github.com/moiot/gravity/pkg/registry"
 	"github.com/moiot/gravity/pkg/schedulers/batch_table_scheduler"
+	"fmt"
 )
 
 type Server struct {
@@ -146,6 +147,7 @@ func newInput(pipelineName string, inputConfig config.InputConfig) (core.Input, 
 }
 
 func (s *Server) Start() error {
+	fmt.Println("123")
 	s.Lock()
 	defer s.Unlock()
 

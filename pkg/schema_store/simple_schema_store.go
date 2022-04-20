@@ -25,6 +25,7 @@ func (store *SimpleSchemaStore) IsInCache(dbName string) bool {
 		return false
 	}
 }
+
 func (store *SimpleSchemaStore) getFromCache(dbName string, lock bool) (Schema, bool) {
 	if lock {
 		store.RLock()

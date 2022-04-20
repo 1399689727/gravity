@@ -1,0 +1,51 @@
+
+# name 必填
+name = "68_2_69_config"
+
+# 内部用于保存位点、心跳等事项的库名，默认为 _gravity
+internal-db-name = "_gravity"
+
+#
+# Input 插件的定义，此处定义使用 mysql
+#
+[input]
+type = "mysql"
+mode = "replication"
+
+[input.config]
+ignore-bidirectional-data = true
+
+[input.config.source]
+host = "172.30.65.68"
+username = "dba"
+password = "a0d196ebf12968f065cdgzs103"
+port = 3306
+
+#
+# Output 插件的定义，此处使用 mysql
+#
+[output]
+type = "mysql"
+[output.config.target]
+host = "172.30.65.69"
+username = "dba"
+password = "a0d196ebf12968f065cdgzs103"
+port = 3306
+
+# 当前支持 create & alter table 语句。库表名会根据路由信息调整。
+[output.config]
+enable-ddl = true
+
+[output.config.sql-engine-config]
+type = "mysql-replace-engine"
+
+[output.config.sql-engine-config.config]
+tag-internal-txn = true
+
+
+# 路由规则的定义
+[[output.config.routes]]
+match-schema = "nihao"
+match-table = "*"
+target-schema = "nihao2"
+target-table = "*"

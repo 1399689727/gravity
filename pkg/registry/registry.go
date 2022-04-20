@@ -25,6 +25,7 @@ type Plugin interface {
 	Configure(pipelineName string, data map[string]interface{}) error
 }
 
+// PluginFactory是个别名：这个函数返回Plugin对象
 type PluginFactory func() Plugin
 
 var registry map[PluginType]map[string]PluginFactory

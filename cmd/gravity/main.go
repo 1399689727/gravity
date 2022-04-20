@@ -53,7 +53,7 @@ func main() {
 		utils.PrintRawInfo("gravity")
 		os.Exit(0)
 	}
-
+	log.SetLevel(log.DebugLevel)
 	log.Info("xxhash backend: ", xxhash.Backend)
 
 	if cfg.ConfigFile != "" {
@@ -79,6 +79,19 @@ func main() {
 	log.RegisterExitHandler(func() {
 		hplugin.CleanupClients()
 	})
+	fmt.Println("***********")
+	fmt.Println(cfg)
+
+	// &{0xc000562c00  {68_2_69_config _gravity 1.0
+	// {mysql replication map[ignore-bidirectional-data:true
+	// source:map[
+	// host:172.30.65.68 password:a0d196ebf12968f065cdgzs103 port:3306 username:dba]]} []
+	// {mysql map[enable-ddl:true routes:[map[match-schema:nihao match-table:* target-schema:nihao2 target-table:*]]
+	// sql-engine-config:map[config:map[tag-internal-txn:true]
+	// type:mysql-replace-engine]
+	// target:map[host:172.30.65.69 password:a0d196ebf12968f065cdgzs103 port:3306 username:dba]]} <nil>}
+	// {info json false { false 0 0 0 false} } :8080  0 0 ./tiger_test/68_2_69_config.toml false false}
+
 
 	server, err := app.NewServer(cfg.PipelineConfig)
 	if err != nil {
@@ -104,6 +117,7 @@ func main() {
 		log.Info("starting http server")
 	}()
 
+	fmt.Println("nihao1....")
 	err = server.Start()
 	if err != nil {
 		log.Fatal(errors.ErrorStack(err))
